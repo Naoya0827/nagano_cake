@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :public do
+    resources :customers, only:[:show, :edit, :update]
+  end
 devise_for :customers, controllers: {
     sessions: 'customers/sessions',
     passwords: 'customers/passwords',

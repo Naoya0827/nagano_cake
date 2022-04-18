@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 2022_04_03_094850) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
+    t.string "postal_code"
+    t.string "address"
+    t.string "telephone_number"
+    t.boolean "is_active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -65,7 +73,7 @@ ActiveRecord::Schema.define(version: 2022_04_03_094850) do
     t.string "image_id"
     t.text "introduction"
     t.integer "price"
-    t.string "is_active"
+    t.boolean "is_active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
