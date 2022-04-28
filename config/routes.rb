@@ -1,14 +1,9 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
-    get 'addresses/create'
-    get 'addresses/update'
-    get 'addresses/destroy'
-  end
+
   namespace :public do
     resources :customers, only:[:show, :edit, :update]
     resources :addresses, only:[:index, :edit, :create, :update, :destroy]
+    resources :items, only:[:index, :show]
   end
 devise_for :customers, controllers: {
     sessions: 'customers/sessions',

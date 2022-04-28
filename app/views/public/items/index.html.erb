@@ -1,0 +1,10 @@
+<h2>商品一覧(全<%= @items.count %>件)</h2>
+<% @items.each do |item| %>
+<div>
+  <%= link_to public_item_path(item.id) do %>
+   <%= attachment_image_tag item, :image, :fill, 200, 150, format: 'jpeg' %>
+   <%= item.name %>
+   ¥<%= (item.price * 1.1).floor %>
+</div>
+
+<%= paginate @items %>
