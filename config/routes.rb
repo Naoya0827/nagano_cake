@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :customers, only:[:show, :edit, :update]
     resources :addresses, only:[:index, :edit, :create, :update, :destroy]
     resources :items, only:[:index, :show]
+    resources :cart_items, only:[:index, :update, :destroy, :create]
+    delete 'cart_items/:id' => 'cart_items#destroy_all'
   end
 devise_for :customers, controllers: {
     sessions: 'customers/sessions',
