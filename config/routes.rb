@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to:'public/homes#top'
+  get '/about' => 'public/homes#about'
 
   namespace :public do
     resources :customers, only:[:show, :edit, :update]
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
     get 'orders/:id' => 'orders#show'
     post 'orders/confirm' => 'orders#confirm'
     post 'orders' => 'orders#create'
-    get 'orders/complete' => 'orders#complete', as: 'orders_complete'
+    get 'orders/complete' => 'orders#complete'
     get 'orders' => 'orders#index'
   end
 devise_for :customers, controllers: {
