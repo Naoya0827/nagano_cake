@@ -4,7 +4,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-
+    @order = Order.new
     if params[:order][:address_number] == "1"
       @order = Order.new(order_params)
       @order.delivery_postal_code = current_customer.postal_code
@@ -29,12 +29,30 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    cart_items = current_customer.cart_items.all
+    @order = current_customer.orders.new(order_params)
+    @order.save
+    cart_items.each do |cart_item|
+      order_detail = OrderDetail.new
+      order_detail.item_id = cart_item.item_id
+      order_detail.order_id = @order.id
+      order_detail.price = cart_item.item.price
+      order_detail.amount = cart_item.amount
+
+      order_detail.save
+    end
+    redirect_to public_orders_complete_path
+    cart_items.destroy_all
+
   end
 
   def index
+    @orders = current_customer.orders
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
   end
 
   private

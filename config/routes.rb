@@ -6,8 +6,13 @@ Rails.application.routes.draw do
     resources :items, only:[:index, :show]
     resources :cart_items, only:[:index, :update, :destroy, :create]
     delete 'cart_items/:id' => 'cart_items#destroy_all'
-    resources :orders, only:[:new, :create, :index, :show]
+
+    get 'orders/new' => 'orders#new'
+    get 'orders/:id' => 'orders#show'
     post 'orders/confirm' => 'orders#confirm'
+    post 'orders' => 'orders#create'
+    get 'orders/complete' => 'orders#complete', as: 'orders_complete'
+    get 'orders' => 'orders#index'
   end
 devise_for :customers, controllers: {
     sessions: 'customers/sessions',
