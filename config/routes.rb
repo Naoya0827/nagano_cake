@@ -28,11 +28,12 @@ devise_for :customers, controllers: {
     registration: 'admin/registrations'
   }
 
-  get 'admin' => 'homes#top'
+  get '/admin' => 'admin/homes#top'
   namespace :admin do
     resources :genres, only:[:index, :create, :edit, :update]
     resources :items, only:[:new, :create, :index, :show, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]
+    get '/orders/:id' => 'orders#show'
   end
 
 
