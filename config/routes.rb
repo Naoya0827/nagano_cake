@@ -33,7 +33,7 @@ devise_for :customers, controllers: {
     resources :genres, only:[:index, :create, :edit, :update]
     resources :items, only:[:new, :create, :index, :show, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]
-    get '/orders/:id' => 'orders#show'
+    resources :orders, only:[:show, :update]
   end
 
 
