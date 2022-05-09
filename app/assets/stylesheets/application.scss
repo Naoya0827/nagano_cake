@@ -43,3 +43,22 @@
 .ml-220px {
   margin-left: 220px;
 }
+
+.main-visual {
+  display: flex;
+  width: 640px;
+  height: 350px;
+  background-image: url(22766243_s.jpg)
+}
+
+.main-visual p {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 500px;
+  height: 120px;
+}
+
+.px-x {
+  padding-left: 130px;
+  padding-top: 100px;
+  font-size: 20px;
+}
