@@ -9,15 +9,15 @@
    <tbody>
     <tr>
      <td>郵便番号（ハイフンなし）</td>
-     <td><%= f.text_field :postal_code %></td>
+     <td><%= f.text_field :postal_code, placeholder:"0000000" %></td>
     </tr>
     <tr>
      <td>住所</td>
-     <td><%= f.text_field :address, class:"col-9" %></td>
+     <td><%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0", class:"col-9" %></td>
     </tr>
     <tr>
      <td>宛名</td>
-     <td><%= f.text_field :name %><%= f.submit "新規登録", class:"btn btn-success w-120px ml-180" %></td>
+     <td><%= f.text_field :name, placeholder:"令和道子" %><%= f.submit "新規登録", class:"btn btn-success w-120px ml-180" %></td>
     </tr>
    </tbody>
   </table>
