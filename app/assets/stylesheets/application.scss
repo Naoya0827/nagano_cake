@@ -19,6 +19,10 @@
   width: 120px !important;
 }
 
+.w-160px {
+  width: 160px !important;
+}
+
 .admin-title {
   margin-bottom: 40px;
   background-color: #e6c5b8;
@@ -32,8 +36,18 @@
 
 }
 
+.public-title {
+margin-bottom: 40px;
+background-color: #e6e6b8;
+}
+
+
 .table-color {
   background-color: #e6c5b8;
+}
+
+.table-color-b {
+  background-color: #e6e6b8;
 }
 
 .ml-90px {
@@ -44,11 +58,15 @@
   margin-left: 220px;
 }
 
+.ml-210px {
+  margin-left: 210px;
+}
+
 .main-visual {
   display: flex;
   width: 640px;
   height: 350px;
-  background-image: url(22766243_s.jpg)
+  background-image: url(22766243_s.jpg);
 }
 
 .main-visual p {
@@ -60,5 +78,23 @@
 .px-x {
   padding-left: 130px;
   padding-top: 100px;
+  font-size: 20px;
+}
+
+.about-visual {
+  background-image: url(23573636_s.jpg);
+  width: 640px;
+  height: 380px;
+}
+
+.p-about {
+  font-size: 25px;
+}
+
+.table-b-c {
+  border: solid 2px green !important;
+}
+
+.p-comfirm {
   font-size: 20px;
 }

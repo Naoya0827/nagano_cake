@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   get '/about' => 'public/homes#about'
 
   namespace :public do
-    resources :customers, only:[:show, :edit, :update]
+    get 'customers/confirm' => 'customers#confirm'
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/edit' => 'customers#edit'
+    patch '/customers' => 'customers#update'
+    patch 'customers/withdraw' => 'customers#withdraw'
     resources :addresses, only:[:index, :edit, :create, :update, :destroy]
     resources :items, only:[:index, :show]
     resources :cart_items, only:[:index, :update, :destroy, :create]
