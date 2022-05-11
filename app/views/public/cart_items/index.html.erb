@@ -1,17 +1,23 @@
-<h2>ショッピングカート</h2>
-<%= link_to "カートを空にする" %>
+<div class="row d-flex justify-content-between">
+  <h4><div class="col-12 public-title">ショッピングカート</div></h4>
+  <div class="col-2">
+    <%= link_to "カートを空にする", public_cart_items_path, method: :delete, class:"btn btn-danger w-160px" %>
+  </div>
+</div>
 
-<table class="table">
-  <thead>
-    <tr>
+
+<div class="row">
+  <table class="table table table-bordered table-b-c">
+   <thead>
+    <tr class="table-color-b">
       <th>商品名</th>
-      <th>単価（税込）</th>
-      <th>数量</th>
-      <th>小計</th>
-      <th></th>
+      <th class="col-2">単価（税込）</th>
+      <th class="col-2">数量</th>
+      <th class="col-2">小計</th>
+      <th class="col-2"></th>
     </tr>
-  </thead>
-<tbody>
+   </thead>
+ <tbody>
   <% @cart_items.each do |cart_item| %>
 
     <tr>
@@ -23,17 +29,35 @@
       <td>
        <%= form_with model: @cart_item, local: true do |f| %>
         <%= f.select :amount, *[1..10] %>
-        <%= f.submit "変更" %>
+        <%= f.submit "変更", class:"btn btn-success ml-1" %>
        <% end %>
       </td>
       <td><%= cart_item.subtotal %></td>
-      <td><%= link_to "削除する", "/public/cart_items/#{cart_item.id}", method: :delete %></td>
+      <td><%= link_to "削除する", "/public/cart_items/#{cart_item.id}", method: :delete, class:"btn btn-danger" %></td>
     </tr>
     <% @total_price += cart_item.subtotal %>
   <% end %>
   </tbody>
-</table>
-<%= link_to "買い物を続ける" %>
-<td>合計金額</td>
-<td><%= @total_price %></td>
-<%= link_to "情報入力に進む", public_orders_new_path %>
+ </table>
+</div>
+
+<div class="row d-flex justify-content-between">
+  <div class="col mt-2">
+    <%= link_to "買い物を続ける", root_path, class:"btn btn-primary" %>
+  </div>
+  <div class="col-3">
+    <table class="table table-bordered table-b-c">
+    <tbody>
+      <tr>
+         <td class="table-color-b">合計金額</td>
+         <td><%= @total_price %></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="row d-flex justify-content-center mt-3">
+  <%= link_to "情報入力に進む", public_orders_new_path, class:"btn btn-success" %>
+</div>
+

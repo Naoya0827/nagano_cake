@@ -95,10 +95,21 @@ background-color: #e6e6b8;
   font-size: 25px;
 }
 
+.item-price {
+   position: absolute; /*自由に配置する指定*/
+  bottom: 0; /*下寄せの指定*/
+  margin-bottom: 20px;
+}
+
 .table-b-c {
   border: solid 2px green !important;
 }
 
 .p-comfirm {
   font-size: 20px;
+}
+
+.select1 {
+  width: 100px;
+  font-size: 25px;
 }
