@@ -20,10 +20,10 @@ Rails.application.routes.draw do
     get 'orders/complete' => 'orders#complete'
     get 'orders' => 'orders#index'
   end
-devise_for :customers, controllers: {
-    sessions: 'customers/sessions',
-    passwords: 'customers/passwords',
-    registration: 'customers/registrations'
+  devise_for :customers, controllers: {
+    sessions: 'public/sessions',
+    passwords: 'public/passwords',
+    registrations: 'public/registrations'
   }
 
   devise_for :admin, controllers: {
