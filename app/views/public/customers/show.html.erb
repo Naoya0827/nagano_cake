@@ -3,7 +3,7 @@
 </div>
 <div class="row mb-4">
   <h4><b>登録情報</b></h4>
-  <%= link_to "編集する", public_customers_edit_path(@customer), class:"btn btn-success ml-5 w-120px" %>
+  <%= link_to "編集する", customers_edit_path(@customer), class:"btn btn-success ml-5 w-120px" %>
 </div>
 
 <div class="row">
@@ -51,11 +51,11 @@
     <tbody>
       <tr>
         <td><b>配送先</b></td>
-        <td><%= link_to "一覧を見る", public_addresses_path, class:"btn btn-primary w-120px" %></td>
+        <td><%= link_to "一覧を見る", addresses_path, class:"btn btn-primary w-120px" %></td>
       </tr>
       <tr>
         <td><b>注文履歴</b></td>
-        <td><%= link_to "一覧を見る", public_orders_path, class:"btn btn-primary w-120px" %></td>
+        <td><%= link_to "一覧を見る", orders_path, class:"btn btn-primary w-120px" %></td>
       </tr>
     </tbody>
   </table>

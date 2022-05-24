@@ -1,7 +1,7 @@
 <div class="row d-flex justify-content-between">
   <h4><div class="col-12 public-title">ショッピングカート</div></h4>
   <div class="col-2">
-    <%= link_to "カートを空にする", public_cart_items_destroy_all_path, method: :delete, class:"btn btn-danger w-160px" %>
+    <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, class:"btn btn-danger w-160px" %>
   </div>
 </div>
 
@@ -27,13 +27,13 @@
       </td>
       <td><%= cart_item.item.with_tax_price %></td>
       <td>
-       <%= form_with model: @cart_item, method: :patch, url: "/public/cart_items/#{cart_item.id}", local: true do |f| %>
+       <%= form_with model: @cart_item, method: :patch, url: "/cart_items/#{cart_item.id}", local: true do |f| %>
         <%= f.select :amount, *[1..10], selected: cart_item.amount %>
         <%= f.submit "変更", class:"btn btn-success ml-1" %>
        <% end %>
       </td>
       <td><%= cart_item.subtotal %></td>
-      <td><%= link_to "削除する", "/public/cart_items/#{cart_item.id}", method: :delete, class:"btn btn-danger" %></td>
+      <td><%= link_to "削除する", "/cart_items/#{cart_item.id}", method: :delete, class:"btn btn-danger" %></td>
     </tr>
     <% @total_price += cart_item.subtotal %>
   <% end %>
@@ -59,7 +59,7 @@
 
 <div class="row d-flex justify-content-center mt-3">
   <% if @cart_items.present? %>
-   <%= link_to "情報入力に進む", public_orders_new_path, class:"btn btn-success" %>
+   <%= link_to "情報入力に進む", orders_new_path, class:"btn btn-success" %>
   <% end %>
 </div>
 

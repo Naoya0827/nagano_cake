@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to:'public/homes#top'
   get '/about' => 'public/homes#about'
 
-  namespace :public do
+  scope module: :public do
     get 'customers/confirm' => 'customers#confirm'
     get 'customers/my_page' => 'customers#show'
     patch 'customers/withdraw' => 'customers#withdraw'

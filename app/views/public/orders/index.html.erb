@@ -30,7 +30,7 @@
       <td><%= order.billing_amount %></td>
       <td><%= order.status_i18n %></td>
       <td>
-        <%= link_to "表示する", "/public/orders/#{order.id}", class:"btn btn-primary" %>
+        <%= link_to "表示する", "/orders/#{order.id}", class:"btn btn-primary" %>
       </td>
     </tr>
     <% end %>
