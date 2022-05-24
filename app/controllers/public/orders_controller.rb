@@ -41,8 +41,8 @@ class Public::OrdersController < ApplicationController
 
       order_detail.save
     end
-    redirect_to public_orders_complete_path
     cart_items.destroy_all
+    redirect_to public_orders_complete_path
 
   end
 
@@ -60,7 +60,4 @@ class Public::OrdersController < ApplicationController
     params.require(:order).permit(:customer_id, :delivery_postal_code, :delivery_address, :delivery_name, :postage, :billing_amount, :payment_method, :status)
   end
 
-  def address_params
-    params.require(:order).permit(:name, :address, :postal_code)
-  end
 end

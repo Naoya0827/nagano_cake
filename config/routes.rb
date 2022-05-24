@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   namespace :public do
     get 'customers/confirm' => 'customers#confirm'
     get 'customers/my_page' => 'customers#show'
-    get 'customers/edit' => 'customers#edit'
-    patch '/customers' => 'customers#update'
     patch 'customers/withdraw' => 'customers#withdraw'
+    resources :customers, only:[:update]
+    get 'customers/edit' => 'customers#edit'
     resources :addresses, only:[:index, :edit, :create, :update, :destroy]
     resources :items, only:[:index, :show]
     resources :cart_items, only:[:index, :update, :destroy, :create]
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get 'orders/:id' => 'orders#show'
     post 'orders/confirm' => 'orders#confirm'
     post 'orders' => 'orders#create'
-    get 'orders/complete' => 'orders#complete'
+    get 'orders_complete' => 'orders#complete'
     get 'orders' => 'orders#index'
   end
   devise_for :customers, controllers: {
@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   get '/admin' => 'admin/homes#top'
   namespace :admin do
+    root to:'homes#top'
     resources :genres, only:[:index, :create, :edit, :update]
     resources :items, only:[:new, :create, :index, :show, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]

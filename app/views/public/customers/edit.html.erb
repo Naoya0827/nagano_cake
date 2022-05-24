@@ -3,7 +3,7 @@
 </div>
 <div class="row">
  <div class="col-8">
-  <%= form_with model:@customer, method: :patch, url: public_customers_path(@customer), local:true do |f| %>
+  <%= form_with model:@customer, method: :patch, url: public_customers_edit_path(@customer), local:true do |f| %>
   <table class="table table-borderless">
    <tbody>
     <tr>
